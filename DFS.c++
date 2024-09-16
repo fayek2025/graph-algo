@@ -5,33 +5,76 @@ using namespace std;
 class Graph{
 
     public:
-    vector<vector<int>> adjacency_matrix;
+    map<int , list<int>> adjacency_list;
 
-    Graph(int n)
-    {
-        adjacency_matrix
-            = vector<vector<int> >(n, vector<int>(n, 0));
-    }
+    
 
     void add_edge(int u, int v)
     {
-        adjacency_matrix[u][v] =1;
-        adjacency_matrix[v][u] =1;
+        adjacency_list[u].push_back(v);
+        
     }
 
     void print (){
-        for(int i=0; i <adjacency_matrix.size(); i++)
+        
+        for (auto i : adjacency_list)
         {
-            cout << i << " : ";
-            for(int j=0; j<adjacency_matrix[i].size(); j++)
+            cout << i.first << ": ";
+
+            for(auto j : i.second )
             {
-                if(adjacency_matrix[i][j] == 1)
-                {
-                    cout << j << " ";
-                }
+                cout << j << " ";
             }
-            cout << endl;
+                cout << endl;
+
         }
     }
+
+    
        
 } ;
+
+void DFSres (map<int , list<int>> &adj , vector<bool> &visited , int s) // we have to send actual vector's address not a copy
+
+{
+    visited[s] = true;
+
+    cout << s << " ";
+
+    for (int i : adj[s])
+    {
+        if(visited[i] == false)
+        {
+            DFSres(adj, visited ,  i);
+        }
+    }
+    
+    
+}
+
+void DFS (map<int , list<int>> &adj , int s)
+{
+    vector<bool> visited(adj.size() , false);
+
+    DFSres(adj , visited , s);
+
+}
+
+
+int main()
+{
+    Graph g;
+
+    g.add_edge(1, 2);
+    g.add_edge(1, 5);
+    g.add_edge(2, 0);
+    g.add_edge(2, 3);
+    g.add_edge(2 , 4);
+
+    g.print();
+    
+    int s = 1;
+
+    DFS(g.adjacency_list , s);
+    
+}
