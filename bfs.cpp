@@ -50,5 +50,5 @@ int main()
     addEdge(adj, 2, 4);
 
     cout << "BFS Starting from 0" << endl;
-    bfs(adj , visited, 0)
+    bfs(adj , visited, 0);
 }
