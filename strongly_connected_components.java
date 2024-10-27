@@ -93,34 +93,39 @@ public class strongly_connected_components {
 
     }
 
-    public static void main(String[] args) {
-        // Create an instance of the Solution class
-       
-        
-        // Number of vertices in the graph
-        int V = 5;
+        public static void main(String[] args) {
+            
 
-        // Creating adjacency list for the graph
-        List<List<Integer>> adj = new ArrayList<>();
+            Scanner scanner = new Scanner(System.in);
+            int t = scanner.nextInt();
+
+            
+            for(int i = 0; i < t ; i++)
+            {
+                List<List<Integer>> adj = new ArrayList<>();
+
+                int n = scanner.nextInt();
+                int m = scanner.nextInt();
+            
+            for (int j = 0; j < n; j++) {
+                adj.add(new ArrayList<Integer>());
+            }
+
+            for(int j = 0 ; j < m ; j++ )
+            {
+                int a = scanner.nextInt();
+                int b = scanner.nextInt();
+                adj.get(a).add(b);
+            }
+            
         
-        // Initialize adjacency list with empty lists
-        for (int i = 0; i < V; i++) {
-            adj.add(new ArrayList<Integer>());
+
+            Kosaraju(adj , n);
+
+            }
+        
+            
+            
         }
-        
-        // Example graph with 5 vertices (0, 1, 2, 3, 4)
-        // Adding directed edges
-        adj.get(0).add(2);
-        adj.get(0).add(3);
-        adj.get(1).add(0);
-        adj.get(2).add(1);
-        adj.get(3).add(4);
-
-        // Call the kosaraju function and print the result
-        Kosaraju(adj , V);
-        
-        // Printing the number of strongly connected components
-        
-    }
     
 }
