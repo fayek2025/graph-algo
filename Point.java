@@ -16,7 +16,7 @@ public class Point {
             {
                 if(!visited[i])
                 {
-                    DFS(adj, visited, point, curr);
+                    DFS(adj, visited, point, i);
                 }
             }
         }
@@ -28,19 +28,21 @@ public class Point {
    {
 
 
-        Boolean[] visited = new Boolean[v];
+        
         for(int i = 1 ; i  <= v ; i++)
-        {   Arrays.fill(visited, false);
+        {   
+            boolean[] visited = new boolean[v+1];
+           
 
             int com = 0;
             for(int j = 1 ; j <= v ; j++)
             {
                 if( j != i)
                 {
-                    if(!visited[i])
+                    if(!visited[j])
                     {
                         com++;
-                        DFS(adj, null, i, j);
+                        DFS(adj, visited, i, j);
 
                     }
                 }
