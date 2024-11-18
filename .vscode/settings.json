@@ -1,7 +1,8 @@
 {
     "files.associations": {
         "*.ejs": "html",
-        "vector": "cpp"
+        "vector": "cpp",
+        "queue": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }
