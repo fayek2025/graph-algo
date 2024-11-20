@@ -1,0 +1,1 @@
+{"name":"Local: sheldon_cooper","url":"d:\\graph-algo\\minimum_spanning_tree\\sheldon_cooper.cpp","tests":[{"id":1732036855892,"input":"1\n3 3\n1 2\n2 3\n1 3","output":"2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\graph-algo\\minimum_spanning_tree\\sheldon_cooper.cpp","group":"local","local":true}
